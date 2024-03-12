@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class Form1 : Form
+    public partial class RegisterForm : Form
     {
-        public Form1()
+        public RegisterForm()
         {
             InitializeComponent();
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
