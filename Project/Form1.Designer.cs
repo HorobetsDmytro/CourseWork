@@ -94,7 +94,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 41);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 30, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(191, 409);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
@@ -102,7 +102,7 @@
             // 
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(3, 33);
+            this.panel2.Location = new System.Drawing.Point(13, 33);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(136, 34);
             this.panel2.TabIndex = 2;
