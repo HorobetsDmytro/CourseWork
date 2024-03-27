@@ -17,15 +17,43 @@ namespace Project
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        bool check = true;
+
+        private void sidebarTransition_Tick(object sender, EventArgs e)
         {
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.Show();
+            if (check)
+            {
+                sidebar.Width -= 10;
+                if(sidebar.Width <= 65)
+                {
+                    check = false;
+                    sidebarTransition.Stop();
+                    pnHome.Width = sidebar.Width;
+                    pnTickets.Width = sidebar.Width;
+                    pnProfile.Width = sidebar.Width;
+                    pnSettings.Width = sidebar.Width;
+                    pnQuestions.Width = sidebar.Width;
+                }
+            }
+            else
+            {
+                sidebar.Width += 10;
+                if(sidebar.Width >= 262)
+                {
+                    check = true;
+                    sidebarTransition.Stop();
+                    pnHome.Width = sidebar.Width;
+                    pnTickets.Width = sidebar.Width;
+                    pnProfile.Width = sidebar.Width;
+                    pnSettings.Width = sidebar.Width;
+                    pnQuestions.Width = sidebar.Width;
+                }
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
-
+            sidebarTransition.Start();
         }
     }
 }
