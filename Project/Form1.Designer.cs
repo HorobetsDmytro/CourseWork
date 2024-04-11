@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.pnHome = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.pnTickets = new System.Windows.Forms.Panel();
@@ -45,6 +43,8 @@
             this.button9 = new System.Windows.Forms.Button();
             this.pnQuestions = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
+            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
+            this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -65,30 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 41);
             this.panel1.TabIndex = 0;
-            // 
-            // nightControlBox1
-            // 
-            this.nightControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nightControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.nightControlBox1.CloseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.nightControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
-            this.nightControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nightControlBox1.DefaultLocation = true;
-            this.nightControlBox1.DisableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.nightControlBox1.DisableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.nightControlBox1.EnableCloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.EnableMaximizeButton = true;
-            this.nightControlBox1.EnableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.EnableMinimizeButton = true;
-            this.nightControlBox1.EnableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.nightControlBox1.Location = new System.Drawing.Point(1227, 0);
-            this.nightControlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.nightControlBox1.MaximizeHoverForeColor = System.Drawing.Color.White;
-            this.nightControlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.nightControlBox1.MinimizeHoverForeColor = System.Drawing.Color.White;
-            this.nightControlBox1.Name = "nightControlBox1";
-            this.nightControlBox1.Size = new System.Drawing.Size(139, 31);
-            this.nightControlBox1.TabIndex = 1;
             // 
             // btnMenu
             // 
@@ -114,13 +90,8 @@
             this.sidebar.Location = new System.Drawing.Point(0, 41);
             this.sidebar.Name = "sidebar";
             this.sidebar.Padding = new System.Windows.Forms.Padding(10, 100, 0, 0);
-            this.sidebar.Size = new System.Drawing.Size(262, 708);
+            this.sidebar.Size = new System.Drawing.Size(262, 727);
             this.sidebar.TabIndex = 1;
-            // 
-            // sidebarTransition
-            // 
-            this.sidebarTransition.Interval = 10;
-            this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
             // 
             // pnHome
             // 
@@ -250,11 +221,40 @@
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // sidebarTransition
+            // 
+            this.sidebarTransition.Interval = 10;
+            this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
+            // 
+            // nightControlBox1
+            // 
+            this.nightControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nightControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.nightControlBox1.CloseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.nightControlBox1.CloseHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nightControlBox1.DefaultLocation = true;
+            this.nightControlBox1.DisableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.nightControlBox1.DisableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.nightControlBox1.EnableCloseColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.EnableMaximizeButton = true;
+            this.nightControlBox1.EnableMaximizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.EnableMinimizeButton = true;
+            this.nightControlBox1.EnableMinimizeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.nightControlBox1.Location = new System.Drawing.Point(1224, 5);
+            this.nightControlBox1.MaximizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.nightControlBox1.MaximizeHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.MinimizeHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.nightControlBox1.MinimizeHoverForeColor = System.Drawing.Color.White;
+            this.nightControlBox1.Name = "nightControlBox1";
+            this.nightControlBox1.Size = new System.Drawing.Size(139, 31);
+            this.nightControlBox1.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -277,7 +277,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnMenu;
-        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private System.Windows.Forms.FlowLayoutPanel sidebar;
         private System.Windows.Forms.Timer sidebarTransition;
         private System.Windows.Forms.Panel pnHome;
@@ -290,5 +289,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel pnQuestions;
         private System.Windows.Forms.Button button10;
+        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
     }
 }

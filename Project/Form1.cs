@@ -22,6 +22,18 @@ namespace Project
         {
             InitializeComponent();
             mdiProp();
+            if (formHome == null)
+            {
+                formHome = new FormHome();
+                formHome.FormClosed += FormHome_FormClosed;
+                formHome.MdiParent = this;
+                formHome.Dock = DockStyle.Fill;
+                formHome.Show();
+            }
+            else
+            {
+                formHome.Activate();
+            }
         }
 
         private void mdiProp()
