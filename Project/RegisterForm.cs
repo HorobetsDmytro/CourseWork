@@ -23,11 +23,6 @@ namespace Project
             connection = new MySqlConnection(connectionString);
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
@@ -66,7 +61,7 @@ namespace Project
                         confirmPassword = "";
 
                         MessageBox.Show("Your Account has been successfully created", "Registration Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        new LoginForm().Show();
+                        panel1.Visible = false;
                         this.Hide();
                     }
                 }
@@ -112,8 +107,29 @@ namespace Project
 
         private void label6_Click(object sender, EventArgs e)
         {
-            new LoginForm().Show();
+            LoginForm loginForm = new LoginForm();
+            loginForm.TopLevel = false;
+            panel1.Controls.Add(loginForm);
+            loginForm.BringToFront();
+            loginForm.Dock = DockStyle.Fill;
+            loginForm.label1.Visible = true;
+            loginForm.Show();
+            
             this.Hide();
+            label6.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+            txtPassword.Visible = false;
+            txtUsername.Visible = false;
+            txtComPassword.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+            checkBoxShowPassword.Visible = false;
+            checkBoxShowPassword.Visible = false;
         }
     }
 }

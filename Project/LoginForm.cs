@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-//using MySql.Data.MySqlClient;
 
 namespace Project
 {
@@ -19,7 +18,6 @@ namespace Project
         public LoginForm()
         {
             InitializeComponent();
-
             string connectionString = "server=127.0.0.1;database=db;uid=root;pwd=Gd_135790;";
             connection = new MySqlConnection(connectionString);
         }
@@ -42,7 +40,9 @@ namespace Project
 
                 if (reader.Read())
                 {
-                    new Form1().Show();
+                    FormHome formHome = new FormHome();
+                    MessageBox.Show("You have successfully logged into your account", "Login Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    panel1.Visible = false;
                     this.Hide();
                 }
                 else
@@ -84,8 +84,14 @@ namespace Project
 
         private void label6_Click(object sender, EventArgs e)
         {
-            new RegisterForm().Show();
-            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.TopLevel = false; 
+            panel1.Controls.Add(registerForm);
+            registerForm.BringToFront();
+            registerForm.Dock = DockStyle.Fill;
+            loginForm.Hide();
+            registerForm.Show();
         }
     }
 }
