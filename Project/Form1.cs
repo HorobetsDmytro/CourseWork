@@ -17,6 +17,7 @@ namespace Project
         FormProfile formProfile;
         FormSettings formSettings;
         FormQuestions formQuestions;
+        FormAdmin formAdmin;
 
         public Form1()
         {
@@ -184,6 +185,35 @@ namespace Project
         private void FormQuestions_FormClosed(object sender, FormClosedEventArgs e)
         {
             formQuestions = null;
+        }
+
+        bool menuExpand = false;
+
+        private void menuTransition_Tick(object sender, EventArgs e)
+        {
+            if(menuExpand == false)
+            {
+                menuContainer.Height += 10;
+                if(menuContainer.Height >= 262)
+                {
+                    menuTransition.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                menuContainer.Height -= 10;
+                if (menuContainer.Height<= 65)
+                {
+                    menuTransition.Stop();
+                    menuExpand = false;
+                }
+            }
+        }
+
+        private void admin_Click(object sender, EventArgs e)
+        {
+            menuTransition.Start();
         }
     }
 }

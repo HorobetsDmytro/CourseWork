@@ -45,6 +45,14 @@
             this.pnQuestions = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
+            this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.admin = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.menuTransition = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.sidebar.SuspendLayout();
@@ -53,6 +61,10 @@
             this.pnProfile.SuspendLayout();
             this.pnSettings.SuspendLayout();
             this.pnQuestions.SuspendLayout();
+            this.menuContainer.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,6 +121,7 @@
             this.sidebar.Controls.Add(this.pnProfile);
             this.sidebar.Controls.Add(this.pnSettings);
             this.sidebar.Controls.Add(this.pnQuestions);
+            this.sidebar.Controls.Add(this.menuContainer);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.sidebar.Location = new System.Drawing.Point(0, 41);
@@ -250,6 +263,96 @@
             this.sidebarTransition.Interval = 10;
             this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
             // 
+            // menuContainer
+            // 
+            this.menuContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.menuContainer.Controls.Add(this.panel2);
+            this.menuContainer.Controls.Add(this.panel4);
+            this.menuContainer.Controls.Add(this.panel3);
+            this.menuContainer.Location = new System.Drawing.Point(13, 433);
+            this.menuContainer.Name = "menuContainer";
+            this.menuContainer.Size = new System.Drawing.Size(247, 65);
+            this.menuContainer.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.panel2.Controls.Add(this.admin);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(247, 60);
+            this.panel2.TabIndex = 11;
+            // 
+            // admin
+            // 
+            this.admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.admin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.admin.ForeColor = System.Drawing.Color.White;
+            this.admin.Image = ((System.Drawing.Image)(resources.GetObject("admin.Image")));
+            this.admin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin.Location = new System.Drawing.Point(-7, -8);
+            this.admin.Name = "admin";
+            this.admin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.admin.Size = new System.Drawing.Size(269, 78);
+            this.admin.TabIndex = 5;
+            this.admin.Text = "Адмін";
+            this.admin.UseVisualStyleBackColor = false;
+            this.admin.Click += new System.EventHandler(this.admin_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Location = new System.Drawing.Point(3, 69);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(247, 60);
+            this.panel4.TabIndex = 11;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(200)))));
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(-7, -8);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(269, 78);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Квитки";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Location = new System.Drawing.Point(3, 132);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(247, 60);
+            this.panel3.TabIndex = 12;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(200)))));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(-6, -9);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(269, 78);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Статистика";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // menuTransition
+            // 
+            this.menuTransition.Interval = 10;
+            this.menuTransition.Tick += new System.EventHandler(this.menuTransition_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -269,6 +372,10 @@
             this.pnProfile.ResumeLayout(false);
             this.pnSettings.ResumeLayout(false);
             this.pnQuestions.ResumeLayout(false);
+            this.menuContainer.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -290,5 +397,13 @@
         private System.Windows.Forms.Button button10;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         public System.Windows.Forms.Button button6;
+        private System.Windows.Forms.FlowLayoutPanel menuContainer;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button admin;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Timer menuTransition;
     }
 }
