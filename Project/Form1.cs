@@ -17,7 +17,7 @@ namespace Project
         FormProfile formProfile;
         FormSettings formSettings;
         FormQuestions formQuestions;
-        FormAdmin formAdmin;
+        FormTicketsAdmin formTicketsAdmin;
 
         public Form1()
         {
@@ -43,6 +43,35 @@ namespace Project
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232, 234, 237);
         }
 
+        bool menuExpand = false;
+
+        private void menuTransition_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand == false)
+            {
+                menuContainer.Height += 10;
+                if (menuContainer.Height >= 262)
+                {
+                    menuTransition.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                menuContainer.Height -= 10;
+                if (menuContainer.Height <= 65)
+                {
+                    menuTransition.Stop();
+                    menuExpand = false;
+                }
+            }
+        }
+
+        private void admin_Click(object sender, EventArgs e)
+        {
+            menuTransition.Start();
+        }
+
         bool check = true;
 
         private void sidebarTransition_Tick(object sender, EventArgs e)
@@ -59,6 +88,7 @@ namespace Project
                     pnProfile.Width = sidebar.Width;
                     pnSettings.Width = sidebar.Width;
                     pnQuestions.Width = sidebar.Width;
+                    menuContainer.Width = sidebar.Width;
                 }
             }
             else
@@ -73,6 +103,7 @@ namespace Project
                     pnProfile.Width = sidebar.Width;
                     pnSettings.Width = sidebar.Width;
                     pnQuestions.Width = sidebar.Width;
+                    menuContainer.Width = sidebar.Width;
                 }
             }
         }
@@ -187,33 +218,25 @@ namespace Project
             formQuestions = null;
         }
 
-        bool menuExpand = false;
-
-        private void menuTransition_Tick(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            if(menuExpand == false)
+            if (formTicketsAdmin == null)
             {
-                menuContainer.Height += 10;
-                if(menuContainer.Height >= 262)
-                {
-                    menuTransition.Stop();
-                    menuExpand = true;
-                }
+                formTicketsAdmin = new FormTicketsAdmin();
+                formTicketsAdmin.FormClosed += FormTicketsAdmin_FormClosed;
+                formTicketsAdmin.MdiParent = this;
+                formTicketsAdmin.Dock = DockStyle.Fill;
+                formTicketsAdmin.Show();
             }
             else
             {
-                menuContainer.Height -= 10;
-                if (menuContainer.Height<= 65)
-                {
-                    menuTransition.Stop();
-                    menuExpand = false;
-                }
+                formTicketsAdmin.Activate();
             }
         }
 
-        private void admin_Click(object sender, EventArgs e)
+        private void FormTicketsAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            menuTransition.Start();
+            formTicketsAdmin = null;
         }
     }
 }

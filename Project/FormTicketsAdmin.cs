@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class FormAdmin : Form
+    public partial class FormTicketsAdmin : Form
     {
-        public FormAdmin()
+        public FormTicketsAdmin()
         {
             InitializeComponent();
         }
 
-        private void FormAdmin_Load(object sender, EventArgs e)
+        private void FormTicketsAdmin_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
         }

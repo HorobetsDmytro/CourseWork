@@ -44,7 +44,6 @@
             this.button9 = new System.Windows.Forms.Button();
             this.pnQuestions = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
-            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.admin = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.menuTransition = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -198,7 +198,7 @@
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(-7, -10);
+            this.button8.Location = new System.Drawing.Point(-8, -10);
             this.button8.Name = "button8";
             this.button8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button8.Size = new System.Drawing.Size(267, 78);
@@ -224,7 +224,7 @@
             this.button9.ForeColor = System.Drawing.Color.White;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(-9, -8);
+            this.button9.Location = new System.Drawing.Point(-12, -8);
             this.button9.Name = "button9";
             this.button9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button9.Size = new System.Drawing.Size(269, 78);
@@ -258,11 +258,6 @@
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // sidebarTransition
-            // 
-            this.sidebarTransition.Interval = 10;
-            this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
-            // 
             // menuContainer
             // 
             this.menuContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
@@ -290,7 +285,7 @@
             this.admin.ForeColor = System.Drawing.Color.White;
             this.admin.Image = ((System.Drawing.Image)(resources.GetObject("admin.Image")));
             this.admin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin.Location = new System.Drawing.Point(-7, -8);
+            this.admin.Location = new System.Drawing.Point(-9, -8);
             this.admin.Name = "admin";
             this.admin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.admin.Size = new System.Drawing.Size(269, 78);
@@ -305,23 +300,24 @@
             this.panel4.Controls.Add(this.button4);
             this.panel4.Location = new System.Drawing.Point(3, 69);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 60);
+            this.panel4.Size = new System.Drawing.Size(244, 60);
             this.panel4.TabIndex = 11;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(200)))));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.button4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-7, -8);
+            this.button4.Location = new System.Drawing.Point(-12, -12);
             this.button4.Name = "button4";
             this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(269, 78);
+            this.button4.Size = new System.Drawing.Size(267, 78);
             this.button4.TabIndex = 5;
             this.button4.Text = "Квитки";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel3
             // 
@@ -335,18 +331,23 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(200)))));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
             this.button3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(-6, -9);
+            this.button3.Location = new System.Drawing.Point(-12, -9);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button3.Size = new System.Drawing.Size(269, 78);
             this.button3.TabIndex = 5;
             this.button3.Text = "Статистика";
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // sidebarTransition
+            // 
+            this.sidebarTransition.Interval = 10;
+            this.sidebarTransition.Tick += new System.EventHandler(this.sidebarTransition_Tick);
             // 
             // menuTransition
             // 
