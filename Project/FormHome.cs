@@ -15,6 +15,7 @@ namespace Project
     public partial class FormHome : Form
     {
         LoginForm loginForm;
+        RegisterForm registerForm;
 
         public FormHome()
         {
