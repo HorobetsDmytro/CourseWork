@@ -398,7 +398,6 @@
         private System.Windows.Forms.Button button10;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         public System.Windows.Forms.Button button6;
-        private System.Windows.Forms.FlowLayoutPanel menuContainer;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button admin;
         private System.Windows.Forms.Panel panel3;
@@ -406,5 +405,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Timer menuTransition;
+        public System.Windows.Forms.FlowLayoutPanel menuContainer;
     }
 }

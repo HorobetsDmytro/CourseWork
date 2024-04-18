@@ -22,6 +22,7 @@ namespace Project
         public Form1()
         {
             InitializeComponent();
+            menuContainer.Visible = false;
             mdiProp();
             if (formHome == null)
             {
