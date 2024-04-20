@@ -8,6 +8,15 @@ namespace Project
 {
     class City
     {
+        public string NameOfCity { get; set; }
+        public string ParkingAddress { get; set; }
 
+        public City() { }
+
+        public City(string nameOfCity, string addressOfParkingLot)
+        {
+            this.NameOfCity = nameOfCity;
+            this.ParkingAddress = addressOfParkingLot;
+        }
     }
 }

@@ -75,6 +75,7 @@ namespace Project
                     {
                         ((Form1)this.MdiParent).menuContainer.Visible = true;
                     }
+                    else ((Form1)this.MdiParent).menuContainer.Visible = false;
                     button1.Text = "Вийти";
                 }
                 else
@@ -118,12 +119,17 @@ namespace Project
         {
             panel2.Visible = false;
             panel3.Visible = true;
+            txtRegUsername.Text = "";
+            txtRegPassword.Text = "";
+            txtComPassword.Text = "";
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             panel3.Visible = false;
             panel2.Visible = true;
+            txtUsername.Text = "";
+            txtPassword.Text = "";
         }
 
         private void button5_Click(object sender, EventArgs e)

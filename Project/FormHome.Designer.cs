@@ -82,9 +82,9 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.checkBoxShowPassword);
-            this.panel2.Location = new System.Drawing.Point(743, 270);
+            this.panel2.Location = new System.Drawing.Point(1037, 615);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(255, 381);
+            this.panel2.Size = new System.Drawing.Size(74, 71);
             this.panel2.TabIndex = 15;
             // 
             // label4
@@ -227,9 +227,9 @@
             this.panel3.Controls.Add(this.checkBox1);
             this.panel3.Controls.Add(this.txtRegPassword);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Location = new System.Drawing.Point(410, 270);
+            this.panel3.Location = new System.Drawing.Point(627, 247);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(252, 445);
+            this.panel3.Size = new System.Drawing.Size(280, 452);
             this.panel3.TabIndex = 16;
             // 
             // txtComPassword

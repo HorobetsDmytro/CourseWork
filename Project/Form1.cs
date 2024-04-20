@@ -18,11 +18,12 @@ namespace Project
         FormSettings formSettings;
         FormQuestions formQuestions;
         FormTicketsAdmin formTicketsAdmin;
+        FormCityAdmin formCityAdmin;
 
         public Form1()
         {
             InitializeComponent();
-            menuContainer.Visible = false;
+            //menuContainer.Visible = false;
             mdiProp();
             if (formHome == null)
             {
@@ -238,6 +239,27 @@ namespace Project
         private void FormTicketsAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
             formTicketsAdmin = null;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (formCityAdmin == null)
+            {
+                formCityAdmin = new FormCityAdmin();
+                formCityAdmin.FormClosed += FormCityAdmin_FormClosed;
+                formCityAdmin.MdiParent = this;
+                formCityAdmin.Dock = DockStyle.Fill;
+                formCityAdmin.Show();
+            }
+            else
+            {
+                formCityAdmin.Activate();
+            }
+        }
+
+        private void FormCityAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formCityAdmin = null;
         }
     }
 }
