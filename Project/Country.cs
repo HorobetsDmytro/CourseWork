@@ -18,16 +18,5 @@ namespace Project
             this.NameOfCountry = nameOfCountry;
             CityList = cityList;
         }
-
-        public void DisplayCitiesInDataGridView(DataGridView dataGridView)
-        {
-            dataGridView.Rows.Clear();
-            dataGridView.Refresh();
-
-            foreach (City city in CityList)
-            {
-                dataGridView.Rows.Add(NameOfCountry, city.NameOfCity, city.ParkingAddress);
-            }
-        }
     }
 }

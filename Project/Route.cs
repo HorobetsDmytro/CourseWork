@@ -12,19 +12,29 @@ namespace Project
         public int routeId { get; set; }
         public string StartCity { get; set; }
         public string EndCity { get; set; }
-        public DateTime ShipmentDate { get; set; }
-        public List<Ticket> Tickets { get; set; }
-        public City City { get; set; }
-        public Country Country { get; set; }
+        public DateTime DepartureDate { get; set; }
+        public DateTime ArrivalDate { get; set; }
+        public DateTime DepartureTime { get; set; }
+        public DateTime ArrivalTime { get; set; }
+        public List<(City, DateTime)> IntermediateStations { get; set; }
+        public int Price { get; set; }
 
-        public Route(int id, string startCity, string endCity, City city, Country country)
+        public Route()
         {
-            routeId = id;
+
+        }
+
+        public Route(int routeId, string startCity, string endCity, DateTime departureDate, DateTime arrivalDate, DateTime departureTime, DateTime arrivalTime, List<(City, DateTime)> intermediateStations, int price)
+        {
+            this.routeId = routeId;
             StartCity = startCity;
             EndCity = endCity;
-            Tickets = new List<Ticket>();
-            City = city;
-            Country = country;
+            DepartureDate = departureDate;
+            ArrivalDate = arrivalDate;
+            DepartureTime = departureTime;
+            ArrivalTime = arrivalTime;
+            IntermediateStations = intermediateStations;
+            Price = price;
         }
 
     }

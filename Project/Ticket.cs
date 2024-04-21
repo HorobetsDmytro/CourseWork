@@ -23,5 +23,13 @@ namespace Project
             ArrivalDateTime = arrivalDateTime;
             this.user = user;
         }
+
+        public Ticket(int id, int price, DateTime departureDateTime, DateTime arrivalDateTime)
+        {
+            Id = id;
+            Price = price;
+            DepartureDateTime = departureDateTime;
+            ArrivalDateTime = arrivalDateTime;
+        }
     }
 }

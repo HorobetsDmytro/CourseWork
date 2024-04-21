@@ -77,7 +77,7 @@ namespace Project
             try
             {
                 connection.Open();
-                string query = "INSERT INTO countries (country, city, parking_adress) VALUES (@country, @city, @parking)";
+                string query = "INSERT INTO countries (country, city, parking_address) VALUES (@country, @city, @parking)";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@country", country);
                 command.Parameters.AddWithValue("@city", city);
@@ -126,7 +126,7 @@ namespace Project
                     // Отримуємо значення з кожного стовпця в поточному рядку
                     string country = reader.GetString("country");
                     string city = reader.GetString("city");
-                    string parking = reader.GetString("parking_adress");
+                    string parking = reader.GetString("parking_address");
 
                     // Додаємо запис до DataGridView
                     dataGridView1.Rows.Add(country, city, parking);
