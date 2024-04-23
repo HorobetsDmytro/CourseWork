@@ -8,6 +8,16 @@ namespace Project
 {
     class Microbus : Vehicle
     {
+        public bool HasAirConditioning {  get; set; }
 
+        public Microbus() : base()
+        {
+            
+        }
+
+        public Microbus(bool hasAirConditioning, int numberOfSeats, string model) : base(numberOfSeats, model)
+        {
+            HasAirConditioning = hasAirConditioning;
+        }
     }
 }
