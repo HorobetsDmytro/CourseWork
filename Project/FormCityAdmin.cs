@@ -35,35 +35,27 @@ namespace Project
             string cityName = txtCity.Text;
             string parkingAddress = txtParking.Text;
 
-            // Перевіряємо, чи не пусті дані
             if (!string.IsNullOrEmpty(countryName) && !string.IsNullOrEmpty(cityName) && !string.IsNullOrEmpty(parkingAddress))
             {
-                // Створюємо об'єкт Country
                 Country country = new Country();
                 country.NameOfCountry = countryName;
 
-                // Ініціалізуємо список міст для кожного об'єкта Country
                 country.CityList = new List<City>();
 
-                // Створюємо об'єкт City
                 City city = new City();
                 city.NameOfCity = cityName;
                 city.ParkingAddress = parkingAddress;
 
-                // Додаємо місто до країни
                 country.CityList.Add(city);
 
-                // Додаємо країну до списку країн
                 countries.Add(country);
 
                 txtCity.Text = "";
                 txtCountry.Text = "";
                 txtParking.Text = "";
 
-                // Вставляємо дані до таблиці в базі даних
                 InsertData(countryName, cityName, parkingAddress);
 
-                // Оновлюємо DataGridView
                 DisplayAllCitiesInDataGridView();
             }
             else
@@ -96,10 +88,8 @@ namespace Project
 
         private void DisplayAllCitiesInDataGridView()
         {
-            // Очищаємо дані у DataGridView
             dataGridView1.Rows.Clear();
 
-            // Додаємо всі міста з усіх країн у DataGridView
             foreach (var country in countries)
             {
                 foreach (var city in country.CityList)
@@ -118,17 +108,14 @@ namespace Project
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
 
-                // Очищаємо дані у DataGridView перед додаванням нових записів
                 dataGridView1.Rows.Clear();
 
                 while (reader.Read())
                 {
-                    // Отримуємо значення з кожного стовпця в поточному рядку
                     string country = reader.GetString("country");
                     string city = reader.GetString("city");
                     string parking = reader.GetString("parking_address");
 
-                    // Додаємо запис до DataGridView
                     dataGridView1.Rows.Add(country, city, parking);
                 }
             }
@@ -148,14 +135,11 @@ namespace Project
             {
                 int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
 
-                // Отримуємо значення з першого стовпця, яке відповідає ідентифікатору запису в базі даних
                 string countryName = dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString();
                 string cityName = dataGridView1.Rows[selectedRowIndex].Cells[1].Value.ToString();
 
-                // Видаляємо запис з бази даних
                 DeleteData(countryName, cityName);
 
-                // Видаляємо рядок з DataGridView
                 dataGridView1.Rows.RemoveAt(selectedRowIndex);
             }
             else

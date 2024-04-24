@@ -164,6 +164,7 @@ namespace Project
             routes.Add(newRoute);
 
             DisplayRoutesInDataGridView();
+            AddRouteToDatabase(newRoute);
             ClearInputFields();
         }
 
@@ -308,7 +309,106 @@ namespace Project
             routes.Add(newRoute);
 
             DisplayRoutesInDataGridView();
+            AddRouteToDatabase(newRoute);
             ClearStationFields();
+        }
+
+        private void AddRouteToDatabase(Route route)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = @"INSERT INTO routes (route_id, start_city, end_city, departure_date, departure_time, arrival_date, arrival_time, station_name, station_address, station_time, price, vehicle_type, model, number_of_seats, has_toilet, has_wifi, has_air_conditioning) 
+                        VALUES (@routeId, @startCity, @endCity, @departureDate, @departureTime, @arrivalDate, @arrivalTime, @station, @stationAddress, @stationTime, @price, @vehicleType, @model, @numberOfSeats, @hasToilet, @hasWifi, @hasAirConditioning)";
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                // Параметризація SQL-запиту
+                command.Parameters.AddWithValue("@routeId", route.RouteId);
+                command.Parameters.AddWithValue("@startCity", route.StartCity);
+                command.Parameters.AddWithValue("@endCity", route.EndCity);
+                command.Parameters.AddWithValue("@departureDate", route.DepartureDate);
+                command.Parameters.AddWithValue("@departureTime", route.DepartureTime);
+                command.Parameters.AddWithValue("@arrivalDate", route.ArrivalDate);
+                command.Parameters.AddWithValue("@arrivalTime", route.ArrivalTime);
+                command.Parameters.AddWithValue("@station", route.IntermediateStations[0].Item1.NameOfCity);
+                command.Parameters.AddWithValue("@stationAddress", route.IntermediateStations[0].Item1.ParkingAddress);
+                command.Parameters.AddWithValue("@stationTime", route.IntermediateStations[0].Item2);
+                command.Parameters.AddWithValue("@price", route.Price);
+                command.Parameters.AddWithValue("@vehicleType", route.Vehicle.GetType().Name);
+                command.Parameters.AddWithValue("@model", (route.Vehicle as Bus)?.Model ?? (route.Vehicle as Microbus)?.Model);
+                command.Parameters.AddWithValue("@numberOfSeats", (route.Vehicle as Bus)?.NumberOfSeats ?? (route.Vehicle as Microbus)?.NumberOfSeats);
+                command.Parameters.AddWithValue("@hasToilet", (route.Vehicle as Bus)?.HasToilet ?? false);
+                command.Parameters.AddWithValue("@hasWifi", (route.Vehicle as Bus)?.HasWifi ?? false);
+                command.Parameters.AddWithValue("@hasAirConditioning", (route.Vehicle as Microbus)?.HasAirConditioning ?? false);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected < 0)
+                    {
+                        MessageBox.Show("Не вдалося додати маршрут до бази даних.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Помилка під час додавання маршруту до бази даних: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM routes";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string routeId = reader["route_id"].ToString();
+                            string startCity = reader["start_city"].ToString();
+                            string endCity = reader["end_city"].ToString();
+                            string departureDate = DateTime.Parse(reader["departure_date"].ToString()).ToString("yyyy-MM-dd");
+                            string departureTime = DateTime.Parse(reader["departure_time"].ToString()).ToString("HH:mm");
+                            string arrivalDate = DateTime.Parse(reader["arrival_date"].ToString()).ToString("yyyy-MM-dd");
+                            string arrivalTime = DateTime.Parse(reader["arrival_time"].ToString()).ToString("HH:mm");
+                            string stationName = reader["station_name"].ToString();
+                            string stationAddress = reader["station_address"].ToString();
+                            string stationTime = DateTime.Parse(reader["station_time"].ToString()).ToString("HH:mm");
+                            string price = reader["price"].ToString();
+                            string vehicleType = reader["vehicle_type"].ToString();
+                            string vehicleModel = reader["model"].ToString();
+                            string numberOfSeats = reader["number_of_seats"].ToString();
+                            string hasToilet = reader["has_toilet"].ToString();
+                            string hasWifi = reader["has_wifi"].ToString();
+                            string hasAirConditioning = reader["has_air_conditioning"].ToString();
+
+                            dataGridView1.Rows.Add(routeId, startCity, endCity, departureDate, departureTime, arrivalDate, arrivalTime, stationName, stationAddress, stationTime, price, vehicleType, vehicleModel, numberOfSeats, hasToilet, hasWifi, hasAirConditioning);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Помилка під час відображення маршрутів: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void LoadParkingAddresses(string selectedCity)
@@ -361,5 +461,83 @@ namespace Project
                 checkBox3.Visible = true;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+                int routeId = int.Parse(dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString());
+                string startCity = dataGridView1.Rows[selectedRowIndex].Cells[1].Value.ToString();
+                string endCity = dataGridView1.Rows[selectedRowIndex].Cells[2].Value.ToString();
+                string departureDate = dataGridView1.Rows[selectedRowIndex].Cells[3].Value.ToString();
+                string departureTime = dataGridView1.Rows[selectedRowIndex].Cells[4].Value.ToString();
+                string arrivalDate = dataGridView1.Rows[selectedRowIndex].Cells[5].Value.ToString();
+                string arrivalTime = dataGridView1.Rows[selectedRowIndex].Cells[6].Value.ToString();
+                string stationName = dataGridView1.Rows[selectedRowIndex].Cells[7].Value.ToString();
+                string stationAddress = dataGridView1.Rows[selectedRowIndex].Cells[8].Value.ToString();
+                string stationTime = dataGridView1.Rows[selectedRowIndex].Cells[9].Value.ToString();
+                string price = dataGridView1.Rows[selectedRowIndex].Cells[10].Value.ToString();
+                string vehicleType = dataGridView1.Rows[selectedRowIndex].Cells[11].Value.ToString();
+                string model = dataGridView1.Rows[selectedRowIndex].Cells[12].Value.ToString();
+                string numberOfSeats = dataGridView1.Rows[selectedRowIndex].Cells[13].Value.ToString();
+
+                DeleteRoute(routeId, startCity, endCity, departureDate, departureTime, arrivalDate, arrivalTime, stationName, stationAddress, stationTime, price, vehicleType, model, numberOfSeats);
+
+                dataGridView1.Rows.RemoveAt(selectedRowIndex);
+            }
+            else
+            {
+                MessageBox.Show("Виберіть рядок, який потрібно видалити.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteRoute(int routeId, string startCity, string endCity, string departureDate, string departureTime, string arrivalDate, string arrivalTime, string stationName, string stationAddress, string stationTime, string price, string vehicleType, string model, string numberOfSeats)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = @"DELETE FROM routes 
+                             WHERE route_id = @routeId 
+                             AND start_city = @startCity 
+                             AND end_city = @endCity 
+                             AND departure_date = @departureDate 
+                             AND departure_time = @departureTime 
+                             AND arrival_date = @arrivalDate 
+                             AND arrival_time = @arrivalTime 
+                             AND station_name = @stationName 
+                             AND station_address = @stationAddress 
+                             AND station_time = @stationTime 
+                             AND price = @price 
+                             AND vehicle_type = @vehicleType 
+                             AND model = @model 
+                             AND number_of_seats = @numberOfSeats";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@routeId", routeId);
+                    command.Parameters.AddWithValue("@startCity", startCity);
+                    command.Parameters.AddWithValue("@endCity", endCity);
+                    command.Parameters.AddWithValue("@departureDate", departureDate);
+                    command.Parameters.AddWithValue("@departureTime", departureTime);
+                    command.Parameters.AddWithValue("@arrivalDate", arrivalDate);
+                    command.Parameters.AddWithValue("@arrivalTime", arrivalTime);
+                    command.Parameters.AddWithValue("@stationName", stationName);
+                    command.Parameters.AddWithValue("@stationAddress", stationAddress);
+                    command.Parameters.AddWithValue("@stationTime", stationTime);
+                    command.Parameters.AddWithValue("@price", price);
+                    command.Parameters.AddWithValue("@vehicleType", vehicleType);
+                    command.Parameters.AddWithValue("@model", model);
+                    command.Parameters.AddWithValue("@numberOfSeats", numberOfSeats);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Помилка видалення маршруту з бази даних: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

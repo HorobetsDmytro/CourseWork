@@ -48,19 +48,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.txtNumberOfSeats = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtModel = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +65,21 @@
             this.Column13 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.txtNumberOfSeats = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtModel = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -310,6 +312,108 @@
             this.dataGridView1.Size = new System.Drawing.Size(1123, 266);
             this.dataGridView1.TabIndex = 33;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "RouteId";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "StartCity";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "EndCity";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "DepartureDate";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "DepartureTime";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "ArrivalDate";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "ArrivalTime";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Station";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "StationAddress";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "StationTime";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Price";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Vehicle";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Model";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "NumberOfSeats";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "isToilet";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "isWifi";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "isConditioning";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -324,7 +428,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(507, 546);
+            this.button1.Location = new System.Drawing.Point(347, 558);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 51);
             this.button1.TabIndex = 36;
@@ -452,107 +556,27 @@
             this.label14.TabIndex = 66;
             this.label14.Text = "Model";
             // 
-            // Column1
+            // button2
             // 
-            this.Column1.HeaderText = "RouteId";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.button2.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(499, 558);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 51);
+            this.button2.TabIndex = 68;
+            this.button2.Text = "Прочитати";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Column2
+            // button3
             // 
-            this.Column2.HeaderText = "StartCity";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "EndCity";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "DepartureDate";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "DepartureTime";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "ArrivalDate";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "ArrivalTime";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Station";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "StationAddress";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "StationTime";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Price";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Vehicle";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Model";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "NumberOfSeats";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "isToilet";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "isWifi";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "isConditioning";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
+            this.button3.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(670, 558);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 51);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "Видалити";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FormTicketsAdmin
             // 
@@ -560,6 +584,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1138, 727);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtModel);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtNumberOfSeats);
@@ -655,5 +681,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column13;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column14;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column15;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
