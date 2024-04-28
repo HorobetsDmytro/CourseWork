@@ -137,8 +137,9 @@ namespace Project
 
                 string countryName = dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString();
                 string cityName = dataGridView1.Rows[selectedRowIndex].Cells[1].Value.ToString();
+                string address = dataGridView1.Rows[selectedRowIndex].Cells[2].Value.ToString();
 
-                DeleteData(countryName, cityName);
+                DeleteData(countryName, cityName, address);
 
                 dataGridView1.Rows.RemoveAt(selectedRowIndex);
             }
@@ -148,15 +149,16 @@ namespace Project
             }
         }
 
-        private void DeleteData(string country, string city)
+        private void DeleteData(string country, string city, string address)
         {
             try
             {
                 connection.Open();
-                string query = "DELETE FROM countries WHERE country = @country AND city = @city";
+                string query = "DELETE FROM countries WHERE country = @country AND city = @city AND parking_address = @parkingAddress";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@country", country);
                 command.Parameters.AddWithValue("@city", city);
+                command.Parameters.AddWithValue("@parkingAddress", address);
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,14 +54,25 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtRegPassword = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.poisonDateTime1 = new ReaLTaiizor.Controls.PoisonDateTime();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.txtStartCity = new System.Windows.Forms.TextBox();
+            this.txtEndCity = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
             this.button1.Location = new System.Drawing.Point(968, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 48);
@@ -227,9 +239,9 @@
             this.panel3.Controls.Add(this.checkBox1);
             this.panel3.Controls.Add(this.txtRegPassword);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Location = new System.Drawing.Point(627, 247);
+            this.panel3.Location = new System.Drawing.Point(926, 619);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(280, 452);
+            this.panel3.Size = new System.Drawing.Size(69, 67);
             this.panel3.TabIndex = 16;
             // 
             // txtComPassword
@@ -382,12 +394,111 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Confirm Password";
             // 
+            // poisonDateTime1
+            // 
+            this.poisonDateTime1.Location = new System.Drawing.Point(537, 69);
+            this.poisonDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.poisonDateTime1.Name = "poisonDateTime1";
+            this.poisonDateTime1.Size = new System.Drawing.Size(200, 29);
+            this.poisonDateTime1.TabIndex = 24;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.label12.Location = new System.Drawing.Point(537, 39);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(200, 25);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Дата відправлення";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.label13.Location = new System.Drawing.Point(387, 40);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 25);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Куди";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
+            this.label14.Location = new System.Drawing.Point(93, 40);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 25);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Звідки";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(777, 63);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(158, 42);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Знайти квиток";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // txtStartCity
+            // 
+            this.txtStartCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.txtStartCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStartCity.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtStartCity.Location = new System.Drawing.Point(50, 70);
+            this.txtStartCity.Multiline = true;
+            this.txtStartCity.Name = "txtStartCity";
+            this.txtStartCity.Size = new System.Drawing.Size(170, 28);
+            this.txtStartCity.TabIndex = 26;
+            // 
+            // txtEndCity
+            // 
+            this.txtEndCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.txtEndCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEndCity.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtEndCity.Location = new System.Drawing.Point(333, 70);
+            this.txtEndCity.Multiline = true;
+            this.txtEndCity.Name = "txtEndCity";
+            this.txtEndCity.Size = new System.Drawing.Size(170, 28);
+            this.txtEndCity.TabIndex = 27;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(258, 70);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1138, 727);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtEndCity);
+            this.Controls.Add(this.txtStartCity);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.poisonDateTime1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
@@ -399,7 +510,9 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -429,5 +542,13 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtRegPassword;
         private System.Windows.Forms.Label label11;
+        private ReaLTaiizor.Controls.PoisonDateTime poisonDateTime1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtStartCity;
+        private System.Windows.Forms.TextBox txtEndCity;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

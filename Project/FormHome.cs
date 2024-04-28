@@ -213,5 +213,126 @@ namespace Project
                 txtComPassword.PasswordChar = '•';
             }
         }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            string temp = txtStartCity.Text;
+            txtStartCity.Text = txtEndCity.Text;
+            txtEndCity.Text = temp;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string startCity = txtStartCity.Text;
+            string endCity = txtEndCity.Text;
+            DateTime departureDate = poisonDateTime1.Value.Date; // Отримуємо дату відправлення
+
+            // Отримуємо кількість маршрутів
+            int numberOfRoutes = GetNumberOfRoutes(startCity, endCity, departureDate);
+
+            // Видаляємо попередні TicketControl
+            RemovePreviousTicketControls();
+
+            // Створюємо і додаємо відповідну кількість нових TicketControl на форму
+            AddTicketControls(numberOfRoutes);
+        }
+
+        private void RemovePreviousTicketControls()
+        {
+            // Проходимося по всіх контролах у формі
+            for (int i = Controls.Count - 1; i >= 0; i--)
+            {
+                Control control = Controls[i];
+                // Якщо контрол - TicketControl, видаляємо його
+                if (control is TicketControl)
+                {
+                    Controls.Remove(control);
+                    control.Dispose(); // Важливо видалити контрол з пам'яті
+                }
+            }
+        }
+
+        private int GetNumberOfRoutes(string startCity, string endCity, DateTime departureDate)
+        {
+            int numberOfRoutes = 0;
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*)\r\nFROM (\r\n  SELECT *, ROW_NUMBER() OVER (PARTITION BY route_id ORDER BY departure_date) AS rn\r\n  FROM routes\r\n  WHERE start_city = @startCity\r\n    AND end_city = @endCity\r\n    AND departure_date = @departureDate\r\n) t\r\nWHERE rn = 1;";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@startCity", startCity);
+                command.Parameters.AddWithValue("@endCity", endCity);
+                command.Parameters.AddWithValue("@departureDate", departureDate);
+                numberOfRoutes = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return numberOfRoutes;
+        }
+
+        private void AddTicketControls(int numberOfControls)
+        {
+            int spacing = 20; // Відступ між кожним TicketControl
+            int startY = 212; // Початкове положення y першого TicketControl
+
+            try
+            {
+                connection.Open();
+                string query = "SELECT *\r\nFROM (\r\n  SELECT *, ROW_NUMBER() OVER (PARTITION BY route_id ORDER BY departure_date) AS rn\r\n  FROM routes\r\n  WHERE start_city = @startCity\r\n    AND end_city = @endCity\r\n    AND departure_date = @departureDate\r\n) t\r\nWHERE rn = 1;";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@startCity", txtStartCity.Text);
+                command.Parameters.AddWithValue("@endCity", txtEndCity.Text);
+                command.Parameters.AddWithValue("@departureDate", poisonDateTime1.Value.Date);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    int i = 0;
+                    while (reader.Read() && i < numberOfControls)
+                    {
+                        TicketControl ticketControl = new TicketControl();
+                        ticketControl.Location = new Point(50, startY + i * (ticketControl.Height + spacing));
+
+                        ticketControl.label1.Text = ((TimeSpan)reader["departure_time"]).ToString(@"hh\:mm");
+                        ticketControl.label2.Text = ((TimeSpan)reader["arrival_time"]).ToString(@"hh\:mm");
+                        ticketControl.label3.Text = ((DateTime)reader["departure_date"]).ToString("yyyy-MM-dd");
+                        ticketControl.label4.Text = ((DateTime)reader["arrival_date"]).ToString("yyyy-MM-dd");
+                        ticketControl.label6.Text = reader["start_city"].ToString();
+                        ticketControl.label7.Text = reader["end_city"].ToString();
+                        ticketControl.label10.Text = reader["price"].ToString();
+
+                        // Розрахунок різниці між часом прибуття та відправлення
+                        DateTime departureDateTime = (DateTime)reader["departure_date"] + (TimeSpan)reader["departure_time"];
+                        DateTime arrivalDateTime = (DateTime)reader["arrival_date"] + (TimeSpan)reader["arrival_time"];
+                        TimeSpan travelDuration = arrivalDateTime - departureDateTime;
+
+                        // Відображення різниці у форматі "... год. ... хв. в дорозі"
+                        int hours = travelDuration.Hours;
+                        int minutes = travelDuration.Minutes;
+                        ticketControl.label5.Text = $"{hours} год. {minutes} хв. в дорозі";
+
+                        this.Controls.Add(ticketControl);
+                        i++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
     }
 }

@@ -68,19 +68,19 @@ namespace Project
                     string stationTime = intermediateStation.Item2.ToString("HH:mm");
 
                     List<object> rowData = new List<object>
-            {
-                route.RouteId,
-                route.StartCity,
-                route.EndCity,
-                route.DepartureDate.ToShortDateString(),
-                route.DepartureTime.ToString("HH:mm"),
-                route.ArrivalDate.ToShortDateString(),
-                route.ArrivalTime.ToString("HH:mm"),
-                station,
-                stationAddress,
-                stationTime,
-                route.Price
-            };
+                    {
+                        route.RouteId,
+                        route.StartCity,
+                        route.EndCity,
+                        route.DepartureDate.ToShortDateString(),
+                        route.DepartureTime.ToString("HH:mm"),
+                        route.ArrivalDate.ToShortDateString(),
+                        route.ArrivalTime.ToString("HH:mm"),
+                        station,
+                        stationAddress,
+                        stationTime,
+                        route.Price
+                    };
 
                     // Додавання додаткових даних про транспортний засіб
                     if (route.Vehicle is Bus)
