@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,10 +37,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.ticketControlTransition = new System.Windows.Forms.Timer(this.components);
+            this.hopeRoundButton1 = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.hopeRoundButton2 = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -143,56 +151,189 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Аеропорт і Ф.Шопена";
             // 
-            // button
-            // 
-            this.button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button.FlatAppearance.BorderSize = 0;
-            this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button.ForeColor = System.Drawing.Color.White;
-            this.button.Location = new System.Drawing.Point(864, 19);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(118, 42);
-            this.button.TabIndex = 27;
-            this.button.Text = "Обрати";
-            this.button.UseVisualStyleBackColor = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(761, 29);
+            this.label10.Location = new System.Drawing.Point(734, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 21);
+            this.label10.Size = new System.Drawing.Size(46, 21);
             this.label10.TabIndex = 28;
-            this.label10.Text = "1300 грн.";
+            this.label10.Text = "1300";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(13, 139);
+            this.label11.Location = new System.Drawing.Point(13, 180);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 21);
             this.label11.TabIndex = 30;
             this.label11.Text = "Деталі";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // ticketControlTransition
+            // hopeRoundButton1
             // 
-            this.ticketControlTransition.Interval = 10;
-            this.ticketControlTransition.Tick += new System.EventHandler(this.ticketControlTransition_Tick);
+            this.hopeRoundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.hopeRoundButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.hopeRoundButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            this.hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundButton1.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.hopeRoundButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hopeRoundButton1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.hopeRoundButton1.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            this.hopeRoundButton1.Location = new System.Drawing.Point(866, 19);
+            this.hopeRoundButton1.Name = "hopeRoundButton1";
+            this.hopeRoundButton1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.hopeRoundButton1.Size = new System.Drawing.Size(118, 40);
+            this.hopeRoundButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundButton1.TabIndex = 31;
+            this.hopeRoundButton1.Text = "Обрати";
+            this.hopeRoundButton1.TextColor = System.Drawing.Color.White;
+            this.hopeRoundButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            this.hopeRoundButton1.Click += new System.EventHandler(this.hopeRoundButton1_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(776, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 21);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "грн";
+            // 
+            // hopeRoundButton2
+            // 
+            this.hopeRoundButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.hopeRoundButton2.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            this.hopeRoundButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeRoundButton2.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundButton2.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.hopeRoundButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.hopeRoundButton2.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.hopeRoundButton2.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            this.hopeRoundButton2.Location = new System.Drawing.Point(780, 145);
+            this.hopeRoundButton2.Name = "hopeRoundButton2";
+            this.hopeRoundButton2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.hopeRoundButton2.Size = new System.Drawing.Size(204, 40);
+            this.hopeRoundButton2.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundButton2.TabIndex = 33;
+            this.hopeRoundButton2.Text = "Сформувати в PDF";
+            this.hopeRoundButton2.TextColor = System.Drawing.Color.White;
+            this.hopeRoundButton2.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            this.hopeRoundButton2.Click += new System.EventHandler(this.hopeRoundButton2_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(304, 154);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(122, 21);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "Lvbnhj Ujhj,twm";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(287, 180);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(139, 21);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "Місце в автобусі: ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(422, 180);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 21);
+            this.label15.TabIndex = 36;
+            this.label15.Text = "9";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(514, 180);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(116, 21);
+            this.label16.TabIndex = 37;
+            this.label16.Text = "Мікроавтобус ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(626, 180);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(73, 21);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Van Hool";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(23, 117);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(122, 21);
+            this.label18.TabIndex = 39;
+            this.label18.Text = "Lvbnhj Ujhj,twm";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(465, 117);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(122, 21);
+            this.label19.TabIndex = 40;
+            this.label19.Text = "Lvbnhj Ujhj,twm";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(156, 180);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 21);
+            this.label20.TabIndex = 41;
+            this.label20.Text = "1";
+            this.label20.Visible = false;
             // 
             // TicketControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.hopeRoundButton2);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.hopeRoundButton1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.button);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -203,7 +344,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TicketControl";
-            this.Size = new System.Drawing.Size(1002, 169);
+            this.Size = new System.Drawing.Size(1002, 211);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,11 +358,20 @@
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.Button button;
         public System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Timer ticketControlTransition;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label12;
+        public ReaLTaiizor.Controls.HopeRoundButton hopeRoundButton2;
+        public ReaLTaiizor.Controls.HopeRoundButton hopeRoundButton1;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label label17;
+        public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.Label label20;
     }
 }

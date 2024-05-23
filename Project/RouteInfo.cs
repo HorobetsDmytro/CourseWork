@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,18 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class FormQuestions : Form
+    public partial class RouteInfo : Form
     {
-        public FormQuestions()
+
+        public RouteInfo()
         {
             InitializeComponent();
         }
 
-        private void FormQuestions_Load(object sender, EventArgs e)
+        private void RouteInfo_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
+            
         }
+
     }
 }

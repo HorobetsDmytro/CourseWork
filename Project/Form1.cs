@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,16 +15,17 @@ namespace Project
     {
         FormHome formHome;
         FormTickets formTickets;
-        FormProfile formProfile;
-        FormSettings formSettings;
-        FormQuestions formQuestions;
         FormTicketsAdmin formTicketsAdmin;
         FormCityAdmin formCityAdmin;
+        FormNewRouteAdmin formNewRouteAdmin;
+        private MySqlConnection connection;
 
         public Form1()
         {
             InitializeComponent();
-            //menuContainer.Visible = false;
+            menuContainer.Visible = false;
+            string connectionString = "server=127.0.0.1;database=db;uid=root;pwd=Gd_135790;";
+            connection = new MySqlConnection(connectionString);
             mdiProp();
             if (formHome == null)
             {
@@ -87,9 +89,6 @@ namespace Project
                     sidebarTransition.Stop();
                     pnHome.Width = sidebar.Width;
                     pnTickets.Width = sidebar.Width;
-                    pnProfile.Width = sidebar.Width;
-                    pnSettings.Width = sidebar.Width;
-                    pnQuestions.Width = sidebar.Width;
                     menuContainer.Width = sidebar.Width;
                 }
             }
@@ -102,9 +101,6 @@ namespace Project
                     sidebarTransition.Stop();
                     pnHome.Width = sidebar.Width;
                     pnTickets.Width = sidebar.Width;
-                    pnProfile.Width = sidebar.Width;
-                    pnSettings.Width = sidebar.Width;
-                    pnQuestions.Width = sidebar.Width;
                     menuContainer.Width = sidebar.Width;
                 }
             }
@@ -150,74 +146,26 @@ namespace Project
             {
                 formTickets.Activate();
             }
+
+            FormHome homeForm = (FormHome)Application.OpenForms["FormHome"];
+            if (homeForm != null)
+            {
+                //MessageBox.Show($"Введений користувач:\nPhone number: {homeForm.enteredPhoneNumber}", "Введений користувач", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (homeForm.IsUserLoggedIn )
+                {
+                    formTickets.LoadBookedTickets(homeForm.enteredPhoneNumber);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Помилка!!!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FormTickets_FormClosed(object sender, FormClosedEventArgs e)
         {
             formTickets = null;
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (formProfile == null)
-            {
-                formProfile = new FormProfile();
-                formProfile.FormClosed += FormProfile_FormClosed;
-                formProfile.MdiParent = this;
-                formProfile.Dock = DockStyle.Fill;
-                formProfile.Show();
-            }
-            else
-            {
-                formProfile.Activate();
-            }
-        }
-
-        private void FormProfile_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formProfile = null;
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            if (formSettings == null)
-            {
-                formSettings = new FormSettings();
-                formSettings.FormClosed += FormSettings_FormClosed;
-                formSettings.MdiParent = this;
-                formSettings.Dock = DockStyle.Fill;
-                formSettings.Show();
-            }
-            else
-            {
-                formSettings.Activate();
-            }
-        }
-
-        private void FormSettings_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formSettings = null;
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            if (formQuestions == null)
-            {
-                formQuestions = new FormQuestions();
-                formQuestions.FormClosed += FormQuestions_FormClosed;
-                formQuestions.MdiParent = this;
-                formQuestions.Dock = DockStyle.Fill;
-                formQuestions.Show();
-            }
-            else
-            {
-                formQuestions.Activate();
-            }
-        }
-
-        private void FormQuestions_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formQuestions = null;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -260,6 +208,27 @@ namespace Project
         private void FormCityAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
             formCityAdmin = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (formNewRouteAdmin == null)
+            {
+                formNewRouteAdmin = new FormNewRouteAdmin();
+                formNewRouteAdmin.FormClosed += FormNewRouteAdmin_FormClosed;
+                formNewRouteAdmin.MdiParent = this;
+                formNewRouteAdmin.Dock = DockStyle.Fill;
+                formNewRouteAdmin.Show();
+            }
+            else
+            {
+                formNewRouteAdmin.Activate();
+            }
+        }
+
+        private void FormNewRouteAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formNewRouteAdmin = null;
         }
     }
 }

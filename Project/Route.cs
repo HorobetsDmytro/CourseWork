@@ -1,9 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Project
 {
@@ -16,16 +15,15 @@ namespace Project
         public DateTime ArrivalDate { get; set; }
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }
-        public List<(City, DateTime)> IntermediateStations { get; set; }
         public int Price { get; set; }
         public Vehicle Vehicle { get; set; }
 
         public Route()
         {
-            IntermediateStations = new List<(City, DateTime)>();
+            
         }
 
-        public Route(int routeId, string startCity, string endCity, DateTime departureDate, DateTime arrivalDate, DateTime departureTime, DateTime arrivalTime, List<(City, DateTime)> intermediateStations, int price, Vehicle vehicle)
+        public Route(int routeId, string startCity, string endCity, DateTime departureDate, DateTime arrivalDate, DateTime departureTime, DateTime arrivalTime, List<(City, DateTime, double)> intermediateStations, int price, Vehicle vehicle)
         {
             RouteId = routeId;
             StartCity = startCity;
@@ -34,37 +32,49 @@ namespace Project
             ArrivalDate = arrivalDate;
             DepartureTime = departureTime;
             ArrivalTime = arrivalTime;
-            IntermediateStations = intermediateStations;
             Price = price;
             Vehicle = vehicle;
         }
 
-        /*public Route(int routeId, string startCity, string endCity, DateTime departureDate, DateTime arrivalDate, DateTime departureTime, DateTime arrivalTime, List<(City, DateTime)> intermediateStations, int price, Bus bus)
+        public Route(int routeId, string startCity, string endCity, int price)
         {
-            this.routeId = routeId;
+            RouteId = routeId;
             StartCity = startCity;
             EndCity = endCity;
-            DepartureDate = departureDate;
-            ArrivalDate = arrivalDate;
-            DepartureTime = departureTime;
-            ArrivalTime = arrivalTime;
-            IntermediateStations = intermediateStations;
             Price = price;
-            this.bus = bus;
         }
 
-        public Route(int routeId, string startCity, string endCity, DateTime departureDate, DateTime arrivalDate, DateTime departureTime, DateTime arrivalTime, List<(City, DateTime)> intermediateStations, int price, Microbus microbus)
+
+        public void SaveToDatabase(MySqlConnection connection)
         {
-            this.routeId = routeId;
-            StartCity = startCity;
-            EndCity = endCity;
-            DepartureDate = departureDate;
-            ArrivalDate = arrivalDate;
-            DepartureTime = departureTime;
-            ArrivalTime = arrivalTime;
-            IntermediateStations = intermediateStations;
-            Price = price;
-            this.microbus = microbus;
-        }*/
+            string query = "INSERT INTO routes (route_id, start_city, end_city, price) VALUES (@routeId, @startCity, @endCity, @price)";
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@routeId", RouteId);
+                command.Parameters.AddWithValue("@startCity", StartCity);
+                command.Parameters.AddWithValue("@endCity", EndCity);
+                command.Parameters.AddWithValue("@price", Price);
+
+                try
+                {
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open();
+                    }
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Помилка: {ex.Message}");
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+        }
     }
 }
